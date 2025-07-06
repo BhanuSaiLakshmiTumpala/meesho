@@ -22,5 +22,8 @@ public class UserController {
     public String sayHelloUserV2(@RequestParam String name){
         return "Hello "+name;
     }
+    public void test(){
+        
+    }
 
 }
