@@ -22,6 +22,16 @@ public class UserController {
     public String sayHelloUserV2(@RequestParam String name){
         return "Hello "+name;
     }
+
+    @GetMapping("/hello_user/v3/{address}")
+    public String sayHelloUserV3(@PathVariable String address){
+        return address;
+    }
+
+    @GetMapping("/hello_user/v4")
+    public String sayHelloUserV4(@RequestParam String mobileNum){
+        return mobileNum;
+    }
     public void test(){
         
     }
