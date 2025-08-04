@@ -1,0 +1,36 @@
+package com.bhanu.meesho.service;
+
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bhanu.meesho.entity.User;
+import com.bhanu.meesho.repository.UserRepository;
+@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+
+    public User createUser(User user){
+       return userRepository.save(user);
+
+    }
+    public Long getPhoneNumberByUserId(Integer id) throws Exception{
+        Optional<User> user= userRepository.findById(id);
+        if(user.isPresent()){
+            return user.get().getNum();
+        }
+        else{
+            throw new UserNotFoundException("User not found");
+        }
+    }
+  public User getUserInfoByNum(Long num) throws Exception{
+    return userRepository.findByNum(num);
+    
+  }
+
+    
+
+}
